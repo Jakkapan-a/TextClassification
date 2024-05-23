@@ -21,3 +21,7 @@
 ```python
 python src/app.py
 ```
+เข้าเว็บไซต์
+```python
+http://localhost:5000
+```

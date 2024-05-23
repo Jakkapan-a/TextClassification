@@ -1,13 +1,13 @@
 from flask import Flask, request, jsonify, render_template
-# from sklearn import datasets
-# from sklearn.model_selection import train_test_split
-# from sklearn.tree import DecisionTreeClassifier
-# from joblib import dump, load
-# from sklearn.datasets import load_iris
-# import mysql.connector
+
+from models.dnn import DnnModel
+
 
 app = Flask(__name__)
 
+dnn_model = DnnModel('./DNN/model_dnn.h5')
+print('Model loaded')
+print(dnn_model.predict('I love you'))
 
 @app.route('/', methods=['GET'])
 def home():

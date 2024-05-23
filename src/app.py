@@ -5,9 +5,9 @@ from models.dnn import DnnModel
 
 app = Flask(__name__)
 
-dnn_model = DnnModel('./DNN/model_dnn.h5')
+dnn_model = DnnModel('./DNN/model_dnn.h5', './DNN/tokenizer.pickle')
 print('Model loaded')
-print(dnn_model.predict('I love you'))
+# print(dnn_model.predict('I love you'))
 
 @app.route('/', methods=['GET'])
 def home():

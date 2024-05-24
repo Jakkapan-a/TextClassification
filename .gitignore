@@ -24,3 +24,5 @@ yarn-error.log
 *.pickle
 *.model
 *.h5
+
+/src/public/*

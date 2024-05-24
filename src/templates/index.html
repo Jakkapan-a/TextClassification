@@ -1,12 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" id="apple-touch-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" id="favicon-32x32">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" id="favicon-16x16">
+    <link rel="manifest" href="/images/site.webmanifest" id="site-webmanifest">
+    <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5" id="safari-pinned-tab">
+    <link rel="icon" href="/images/favicon-32x32.png" type="image/x-icon" id="favicon-ico">
+
+    <!-- Meta Tags -->
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <title>CT663 - Machine Learning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>CT663 - Machine Learning</hh1>
-    <p>Machine Learning is a method of data analysis that automates analytical model building. It is a branch of artificial intelligence based on the idea that systems can learn from data, identify patterns and make decisions with minimal human intervention.</p>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="https://cite.dpu.ac.th/img/logo-cite-edit.jpg" class="img-fluid" alt="CITE Logo"
+                        width="45" height="24">
+                    CT663 - Machine Learning</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End Header -->
+
+    <!-- Main Content -->
+    <main class="mb-5" style="margin-bottom: 5rem !important;">
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center mt-5">Welcome to CT663 - Machine Learning</h3>
+                    <p class="text-center">This is a simple machine learning project using Python and Flask with LPN,
+                        DNN, SVM</p>
+                </div>
+            </div>
+            <!-- Form Input -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 ">
+                    <form action="#" method="POST">
+                        <div class="mb-3">
+                            <label for="text_input" class="form-label"> Enter Text </label>
+                            <textarea type="text" class="form-control" id="text_input" name="text_input"
+                                rows="4"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- End Form Input -->
+
+            <!-- Prediction Result Button -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 ">
+                    <button type="submit" class="btn btn-primary" id="predict_btn_lpn">Predict LPN</button>
+                    <button type="submit" class="btn btn-success" id="predict_btn_dnn">Predict DNN</button>
+                    <button type="submit" class="btn btn-warning" id="predict_btn_svm">Predict SVM</button>
+                </div>
+            </div>
+            <!-- End Prediction Result Button -->
+
+            <!-- Prediction Table -->
+            <div class="row d-flex justify-content-center mt-5">
+                <!-- LPN -->
+                <div class="col-md-4 table-responsive">
+                    <h4>LPN Prediction</h4>
+                    <table class="table table-bordered table-striped table-hover" id="lpn_table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Text Input</th>
+                                <th scope="col">Prediction</th>
+                                <th scope="col">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- End LPN -->
+
+                <!-- DNN -->
+                <div class="col-md-4 table-responsive">
+                    <h4>ANN-> DNN Prediction</h4>
+                    <table class="table table-bordered table-striped table-hover" id="dnn_table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Text Input</th>
+                                <th scope="col">Prediction</th>
+                                <th scope="col">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- End DNN -->
+
+                <!-- SVM -->
+                <div class="col-md-4 table-responsive">
+                    <h4>SVM Prediction</h4>
+                    <table class="table table-bordered table-striped table-hover" id="svm_table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Text Input</th>
+                                <th scope="col">Prediction</th>
+                                <th scope="col">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--  -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- End SVM -->
+            </div>
+        </div>
+    </main>
+    <!-- End Main Content -->
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5" style="position: fixed; bottom: 0; width: 100%;">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2024 CT663 - Machine Learning
+        </div>
+    </footer>
+
+    <!-- End Footer -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const notyf = new Notyf({
+                duration: 3000,
+                position: {
+                    x: 'right',
+                    y: 'top',
+                },
+                withIcon: true,
+            });
+
+            const predictBtnLPN = document.getElementById('predict_btn_lpn');
+            const predictBtnDNN = document.getElementById('predict_btn_dnn');
+            const predictBtnSVM = document.getElementById('predict_btn_svm');
+
+            const lpnTable = document.getElementById('lpn_table');
+            const dnnTable = document.getElementById('dnn_table');
+            const svmTable = document.getElementById('svm_table');
+
+            const dataLPNTable = [];
+            const dataDNNTable = [];
+            const dataSVMTable = [];
+
+            predictBtnLPN.addEventListener('click', function () {
+                // Link to Flask API = "/predict/lpn"
+                const textInput = document.getElementById('text_input').value;
+                if(textInput.trim() === '') {
+                    notyf.error('Please enter text');
+                    return;
+                }
+                fetch('/predict/lpn', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        text: textInput,
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.error) {
+                            notyf.error(data.error);
+                            return;
+                        }
+                        const result = data.result;
+                        const score = data.score;
+                        if (result === undefined || score === undefined) {
+                            notyf.error('Error');
+                            return;
+                        }
+                        if (result.toLowerCase() === 'spam') {
+                            notyf.error('Spam');
+                        } else {
+                            notyf.success('Not Spam');
+                        }
+                        // Add Data to Table
+                        dataLPNTable.push({
+                            no: dataLPNTable.length + 1,
+                            text: textInput,
+                            prediction: result,
+                            score: score.toFixed(0),
+                        });
+
+                        randerTable(lpnTable, dataLPNTable);
+                    })
+                    .catch((error) => {
+                        console.log('Error:', error);
+                    });
+            });
+
+            predictBtnDNN.addEventListener('click', function () {
+                // Link to Flask API = "/predict/dnn"
+                const textInput = document.getElementById('text_input').value;
+                if(textInput.trim() === '') {
+                    notyf.error('Please enter text');
+                    return;
+                }
+                fetch('/predict/dnn', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        text: textInput,
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.error) {
+                            notyf.error(data.error);
+                            return;
+                        }
+                        const result = data.result;
+                        const score = data.score;
+                        if (result === undefined || score === undefined) {
+                            notyf.error('Error');
+                            return;
+                        }
+                        if (result.toLowerCase() === 'spam') {
+                            notyf.error('Spam');
+                        } else {
+                            notyf.success('Not Spam');
+                        }
+                        // Add Data to Table
+                        dataDNNTable.push({
+                            no: dataDNNTable.length + 1,
+                            text: textInput,
+                            prediction: result,
+                            score: score.toFixed(0),
+                        });
+
+                        randerTable(dnnTable, dataDNNTable);
+                    })
+                    .catch((error) => {
+                        console.log('Error:', error);
+                    });
+
+            });
+
+            predictBtnSVM.addEventListener('click', function () {
+                // Link to Flask API = "/predict/svm"
+                const textInput = document.getElementById('text_input').value;
+                if(textInput.trim() === '') {
+                    notyf.error('Please enter text');
+                    return;
+                }
+                fetch('/predict/svm', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        text: textInput,
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.error) {
+                            notyf.error(data.error);
+                            return;
+                        }
+                        const result = data.result;
+                        const score = data.score;
+                        if (result === undefined || score === undefined) {
+                            notyf.error('Error');
+                            return;
+                        }
+                        if (result.toLowerCase() === 'spam') {
+                            notyf.error('Spam');
+                        } else {
+                            notyf.success('Not Spam');
+                        }
+                        // Add Data to Table
+                        dataSVMTable.push({
+                            no: dataSVMTable.length + 1,
+                            text: textInput,
+                            prediction: result,
+                            score: score.toFixed(0),
+                        });
+
+                        randerTable(svmTable, dataSVMTable);
+                    })
+                    .catch((error) => {
+                        console.log('Error:', error);
+                    });
+            });
+
+            function randerTable(table, data) {
+                let tableData = '';
+                data.forEach((item) => {
+                    tableData += `
+                            <tr>
+                                <td>${item.no}</td>
+                                <td>${item.text}</td>
+                                <td>${item.prediction}</td>
+                                <td>${item.score}</td>
+                            </tr>
+                        `;
+                });
+
+                table.querySelector('tbody').innerHTML = tableData;
+            }
+
+            // Load favicon
+            function loadFavicon(linkId, url, fallbackUrl) {
+                const linkElement = document.getElementById(linkId);
+                fetch(url)
+                    .then((response) => {
+                        if (!response.ok) {
+                           throw new Error('Network response was not ok');
+                        }
+
+                        return response.blob();
+                    }).then(blob => {
+                        const objectURL = URL.createObjectURL(blob);
+                        // console.log(objectURL);
+                        linkElement.href = objectURL;
+                    })
+                    .catch(() => {
+                        linkElement.href = fallbackUrl;
+                    });
+            }
+
+            loadFavicon('apple-touch-icon', '/public/images/apple-touch-icon.png', '/public/images/favicon.ico');
+            loadFavicon('favicon-32x32', '/public/images/favicon-32x32.png', '/public/images/favicon.ico');
+            loadFavicon('favicon-16x16', '/public/images/favicon-16x16.png', '/public/images/favicon.ico');
+            loadFavicon('site-webmanifest', '/public/images/site.webmanifest', '/public/images/favicon.ico');
+            loadFavicon('safari-pinned-tab', '/public/images/safari-pinned-tab.svg', '/public/images/favicon.ico');
+            loadFavicon('favicon-ico', '/public/images/favicon-32x32.png', '/public/images/favicon.ico');
+
+        });
+    </script>
 </body>
+
 </html>
